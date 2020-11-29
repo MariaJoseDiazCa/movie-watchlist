@@ -7,22 +7,26 @@ import "./App.css";
 import "./lib/font-awesome/css/all.min.css";
 import { Watched } from "./components/Watched";
 
+import { GlobalProvider } from "./context/GlobalState";
+
 function App() {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Watchlist />
-        </Route>
-        <Route exact path="/watched">
-          <Watched />
-        </Route>
-        <Route exact path="/add">
-          <Add />
-        </Route>
-      </Switch>
-    </Router>
+    <GlobalProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Watchlist />
+          </Route>
+          <Route exact path="/watched">
+            <Watched />
+          </Route>
+          <Route exact path="/add">
+            <Add />
+          </Route>
+        </Switch>
+      </Router>
+    </GlobalProvider>
   );
 }
 

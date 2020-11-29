@@ -1,5 +1,6 @@
 //rafc
 import React, { useState } from "react";
+import { ResultCard } from "./ResultCard";
 
 export const Add = () => {
   const [query, setQuery] = useState("");
@@ -38,7 +39,9 @@ export const Add = () => {
           {results.length > 0 && (
             <ul className="results">
               {results.map((movie) => (
-                <li>{movie.title}</li>
+                <li key={movie.id}>
+                  <ResultCard movie={movie} />
+                </li>
               ))}
             </ul>
           )}
